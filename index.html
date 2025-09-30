@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASHIJIAN - 个人博客</title>
+    <link rel="icon" type="image/png" href="assets/favicon-16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-blog"></i>
+                <span>MASHIJIAN</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#blog">博客</a></li>
+                    <li><a href="#about">关于</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>欢迎来到我的个人博客</h1>
+            <p>分享技术见解、生活感悟与创意灵感</p>
+            <a href="#blog" class="btn">阅读最新文章</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="blog">
+            <div class="container">
+                <div class="section-title">
+                    <h2>最新博客</h2>
+                </div>
+                
+                <!-- 博客列表 -->
+                <div id="blogList">
+                    <div class="blog-posts pagination-container" id="blogPostsContainer">
+                        <div class="post-card">
+                            <div class="post-image" style="background-image: url('assets/qwen3_asend.png');"></div>
+                            <div class="post-content">
+                                <div class="post-date">2025年9月30日</div>
+                                <h3 class="post-title">Qwen3-8B 在华为昇腾平台上的保姆级微调与推理教程</h3>
+                                <p class="post-excerpt">一份详尽的实践指南，基于AutoDL平台，助你轻松完成Qwen3-8B模型的推理和LoRA微调。</p>
+                                <a href="https://iiiiqiiii.github.io/qwen3-ascend-autodl-tutorial/" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');"></div>
+                            <div class="post-content">
+                                <div class="post-date">2023年10月10日</div>
+                                <h3 class="post-title">JavaScript异步编程完全指南</h3>
+                                <p class="post-excerpt">从回调函数到Promise，再到async/await，全面解析JavaScript异步编程的演变和最佳实践。</p>
+                                <a href="posts/post2.html" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');"></div>
+                            <div class="post-content">
+                                <div class="post-date">2023年10月5日</div>
+                                <h3 class="post-title">CSS Grid布局实战技巧</h3>
+                                <p class="post-excerpt">通过实际案例展示CSS Grid布局的强大功能，帮助开发者轻松创建复杂的网页布局。</p>
+                                <a href="posts/post3.html" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80');"></div>
+                            <div class="post-content">
+                                <div class="post-date">2023年9月30日</div>
+                                <h3 class="post-title">Web性能优化技术指南</h3>
+                                <p class="post-excerpt">探索各种Web性能优化策略，包括代码分割、懒加载、缓存策略等，帮助提升网站加载速度和用户体验。</p>
+                                <a href="posts/post4.html" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1518777664471-134d7d9ca3f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');"></div>
+                            <div class="post-content">
+                                <div class="post-date">2023年9月25日</div>
+                                <h3 class="post-title">现代JavaScript ES6+特性详解</h3>
+                                <p class="post-excerpt">深入剖析ES6引入的新特性，包括let/const、箭头函数、模板字符串、解构赋值等，助力JavaScript开发提效。</p>
+                                <a href="posts/post5.html" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80');"></div>
+                            <div class="post-content">
+                                <div class="post-date">2023年9月20日</div>
+                                <h3 class="post-title">使用Tailwind CSS构建响应式网站</h3>
+                                <p class="post-excerpt">实用指南：如何利用Tailwind CSS的实用类快速构建现代化、响应式的Web界面，提升开发效率。</p>
+                                <a href="posts/post6.html" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <button class="page-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
+                        <span class="page-info">第 1 页 / 共 1 页</span>
+                        <button class="page-btn next" disabled><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" style="padding: 4rem 0; background-color: white;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>关于我</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="assets/msj-image.png" alt="MASHIJIAN">
+                    </div>
+                    <div class="about-text">
+                        <h3>你好，我是 MASHIJIAN</h3>
+                        <p>我是一名AI研究员和全栈开发者，拥有5年以上的开发经验。专注于AI Agent开发与智能应用创新。</p>
+                        <p>我热衷于AI技术探索，深耕Agent系统、机器学习等领域。在业余时间，我喜欢研究前沿AI模型、参与技术社区，以及开发智能应用项目。</p>
+                        <p>这个博客是我分享AI见解、技术经验和创新实践的地方。希望我的内容能为你带来启发！</p>
+                        
+                        <div class="skills">
+                            <span class="skill">PyTorch</span>
+                            <span class="skill">LangChain</span>
+                            <span class="skill">Python</span>
+                            <span class="skill">React</span>
+                            <span class="skill">Node.js</span>
+                            <span class="skill">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-blog"></i> MASHIJIAN
+            </div>
+            <p>分享技术，记录生活，创造价值</p>
+            <div class="footer-contact">
+                <a href="mailto:mas8069@foxmail.com"><i class="fas fa-envelope"></i> mas8069@foxmail.com</a>
+                <a href="https://github.com/IIIIQIIII" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 MASHIJIAN. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

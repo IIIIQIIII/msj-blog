@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用Tailwind CSS构建响应式网站 - MASHIJIAN 个人博客</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-blog"></i>
+                <span>MASHIJIAN</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="../index.html#home" class="">首页</a></li>
+                    <li><a href="../index.html#blog" class="active">博客</a></li>
+                    <li><a href="../index.html#about">关于</a></li>
+                    <li><a href="../index.html#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="post6" class="blog-detail active">
+                <div class="blog-header">
+                    <h1>使用Tailwind CSS构建响应式网站</h1>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> 2023年9月20日</span>
+                        <span><i class="far fa-clock"></i> 阅读时间: 11分钟</span>
+                        <span><i class="fas fa-tag"></i> Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <p>Tailwind CSS是一种实用优先的设计系统，通过在HTML中直接应用实用类，来避免编写自定义CSS。本文将详细介绍如何使用Tailwind CSS构建现代化响应式网站。</p><h2>Tailwind CSS简介</h2><p>Tailwind不同于传统CSS框架，它不提供预构建组件，而是提供大量低级实用类，让开发者快速构建自定义设计。</p><h3>核心理念</h3><ul><li><strong>实用优先</strong>：直接在HTML中使用CSS类</li><li><strong>高度可定制</strong>：通过配置文件调整设计系统</li><li><strong>响应式内置</strong>：使用断点前缀实现响应式设计</li><li><strong>无意见</strong>：不强制设计风格</li></ul><h2>安装和配置</h2><pre><code>// 使用CDN（开发阶段）
+<script src="https://cdn.tailwindcss.com"></script>
+
+// NPM安装
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+// tailwind.config.js
+module.exports = {
+  content: ['./src/**/*.{html,js}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+// CSS文件
+@tailwind base;
+@tailwind components;
+@tailwind utilities;</code></pre><h2>实用类基础</h2><h3>布局类</h3><pre><code><!-- Flexbox布局 -->
+<div class="flex items-center justify-between">
+  <div class="flex-1">内容</div>
+  <div class="w-64">边栏</div>
+</div>
+
+<!-- Grid布局 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="col-span-1">1</div>
+  <div class="col-span-2">2-3</div>
+</div></code></pre><h3>间距和尺寸</h3><pre><code><!-- 间距类（p- = padding, m- = margin） -->
+<div class="p-4 m-2">
+  <div class="p-6 mx-auto max-w-md">
+    内容
+  </div>
+</div>
+
+<!-- 尺寸类 -->
+<div class="w-full md:w-1/2 lg:w-1/3 h-64">
+  固定高度64
+</div></code></pre><h3>颜色和排版</h3><pre><code><!-- 文本颜色和背景 -->
+<h1 class="text-4xl text-blue-600 bg-gray-50">
+  标题
+</h1>
+
+<p class="text-gray-700 text-lg leading-relaxed">
+  正文内容，行间距松弛
+</p>
+
+<!-- 颜色系统 -->
+<div class="bg-red-500 text-white hover:bg-red-600">
+  红色按钮，悬停变深
+</div></code></pre><h2>响应式设计</h2><p>Tailwind使用断点前缀实现响应式：sm:, md:, lg:, xl:, 2xl:</p><pre><code><!-- 移动优先 -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div class="col-span-1">内容</div>
+</div>
+
+<!-- 隐藏和显示 -->
+<div class="hidden md:block">
+  桌面端显示
+</div>
+
+<!-- 响应式文本 -->
+<h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+  响应式标题
+</h1></code></pre><h2>自定义组件</h2><h3>卡片组件</h3><pre><code><div class="bg-white rounded-lg shadow-md overflow-hidden">
+  <img class="w-full h-48 object-cover" src="image.jpg" alt="Card image">
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2">卡片标题</h3>
+    <p class="text-gray-600 mb-4">卡片描述内容...</p>
+    <a href="#" class="text-blue-500 hover:underline">阅读更多</a>
+  </div>
+</div></code></pre><h3>导航栏</h3><pre><code><nav class="bg-white shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <div class="text-xl font-bold">Logo</div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="text-gray-700 hover:text-blue-600">首页</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">博客</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">关于</a>
+      </div>
+      <button class="md:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav></code></pre><h2>配置文件定制</h2><pre><code>// tailwind.config.js
+module.exports = {
+  content: ['./src/**/*.{html,js}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          900: '#1e3a8a',
+        },
+        'brand-blue': '#1fb6ff',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+      spacing: {
+        '128': '32rem',
+      },
+    },
+  },
+  plugins: [],
+};</code></pre><h2>工作流程优化</h2><h3>PurgeCSS集成</h3><p>自动移除未使用的CSS，减少文件大小：</p><pre><code>module.exports = {
+  content: ['./src/**/*.{html,js}'],
+  plugins: [
+    require('tailwindcss-purgecss')({
+      content: ['./src/**/*.html', './src/**/*.js'],
+    }),
+  ],
+}</code></pre><h3>VS Code扩展</h3><ul><li>Tailwind CSS IntelliSense：自动补全和预览</li><li>Headwind：排序实用类</li><li>Tailwind CSS snippets：快速代码片段</li></ul><h2>生产环境优化</h2><ul><li><strong>PostCSS处理</strong>：自动添加前缀，优化CSS</li><li><strong>Tree Shaking</strong>：移除未使用样式</li><li><strong>CDN部署</strong>：使用Tailwind Play CDN快速原型</li></ul><pre><code><!-- 使用Tailwind Play CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: { colors: { clifford: '#da373d' } } }
+  }
+</script></code></pre><h2>总结</h2><p>Tailwind CSS通过实用优先的方法极大地提升了开发效率。响应式设计内置、自定义简单、工作流程优化，使其成为现代Web开发的强大工具。通过掌握Tailwind的核心概念和实用技巧，开发者可以快速构建高质量的响应式网站。</p>
+                </div>
+                <a href="../index.html#blog" class="back-to-blog"><i class="fas fa-arrow-left"></i> 返回博客列表</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-blog"></i> MASHIJIAN
+            </div>
+            <p>分享技术，记录生活，创造价值</p>
+            <div class="copyright">
+                &copy; 2023 MASHIJIAN. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

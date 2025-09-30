@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript异步编程完全指南 - MASHIJIAN 个人博客</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-blog"></i>
+                <span>MASHIJIAN</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="../index.html#home" class="">首页</a></li>
+                    <li><a href="../index.html#blog" class="active">博客</a></li>
+                    <li><a href="../index.html#about">关于</a></li>
+                    <li><a href="../index.html#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="post2" class="blog-detail active">
+                <div class="blog-header">
+                    <h1>JavaScript异步编程完全指南</h1>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> 2023年10月10日</span>
+                        <span><i class="far fa-clock"></i> 阅读时间: 10分钟</span>
+                        <span><i class="fas fa-tag"></i> JavaScript</span>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <p>JavaScript作为一门单线程语言，异步编程是其处理耗时操作（如网络请求、文件读写等）的核心机制。本文将全面解析JavaScript异步编程的演变历程和最佳实践。</p><h2>回调函数（Callback Functions）</h2><p>回调函数是JavaScript最早的异步编程模式。通过将函数作为参数传递给另一个函数，在异步操作完成后执行该回调函数。</p><pre><code>function fetchData(callback) {
+  setTimeout(() => {
+    const data = { id: 1, name: 'MASHIJIAN' };
+    callback(null, data);
+  }, 1000);
+}
+
+fetchData((err, data) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(data);
+  }
+});</code></pre><p>回调函数的主要问题是"回调地狱"（Callback Hell）——当多个异步操作需要串行执行时，代码会形成深层嵌套，难以阅读和维护。</p><h2>Promise</h2><p>Promise是ES6引入的异步编程解决方案，它表示一个异步操作的最终完成（或失败）及其结果值。</p><h3>Promise的基本用法</h3><pre><code>function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = true;
+      if (success) {
+        resolve({ id: 1, name: 'MASHIJIAN' });
+      } else {
+        reject(new Error('Failed to fetch data'));
+      }
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then(data => {
+    console.log(data);
+    return processData(data);
+  })
+  .then(result => {
+    console.log(result);
+  })
+  .catch(error => {
+    console.error(error);
+  });</code></pre><h3>Promise链</h3><p>Promise的then方法返回一个新的Promise，允许我们创建链式调用，避免回调地狱。</p><h3>Promise.all</h3><p>当需要并行执行多个异步操作时，可以使用Promise.all：</p><pre><code>Promise.all([
+  fetch('/api/users'),
+  fetch('/api/posts'),
+  fetch('/api/comments')
+])
+.then(responses => Promise.all(responses.map(res => res.json())))
+.then(data => {
+  const [users, posts, comments] = data;
+  // 处理数据
+})
+.catch(error => {
+  console.error('Error:', error);
+});</code></pre><h2>async/await</h2><p>ES2017引入的async/await是基于Promise的语法糖，使异步代码看起来像同步代码，大大提高了可读性。</p><h3>基本用法</h3><pre><code>async function fetchUserData() {
+  try {
+    const response = await fetch('/api/user/1');
+    const user = await response.json();
+    console.log(user);
+    
+    const postsResponse = await fetch(`/api/posts?userId=${user.id}`);
+    const posts = await postsResponse.json();
+    console.log(posts);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchUserData();</code></pre><h3>错误处理</h3><p>async/await使用传统的try/catch语句处理错误，比Promise的catch更直观。</p><h3>并行执行</h3><p>虽然await使代码看起来是顺序执行的，但我们仍然可以并行执行多个异步操作：</p><pre><code>async function fetchAllData() {
+  // 并行执行
+  const [userPromise, postsPromise, commentsPromise] = [
+    fetch('/api/user/1'),
+    fetch('/api/posts'),
+    fetch('/api/comments')
+  ];
+  
+  const [user, posts, comments] = await Promise.all([
+    userPromise.then(res => res.json()),
+    postsPromise.then(res => res.json()),
+    commentsPromise.then(res => res.json())
+  ]);
+  
+  return { user, posts, comments };
+}</code></pre><h2>异步编程最佳实践</h2><ol><li><strong>优先使用async/await</strong>：它使代码更清晰、更易读</li><li><strong>正确处理错误</strong>：始终使用try/catch或.catch()处理可能的错误</li><li><strong>避免在循环中使用await</strong>：如果循环中的异步操作可以并行执行，使用Promise.all</li><li><strong>不要混合使用回调和Promise</strong>：保持代码风格一致</li><li><strong>使用Promise.resolve()和Promise.reject()</strong>：将值或错误转换为Promise</li></ol><h2>总结</h2><p>JavaScript异步编程从回调函数发展到Promise，再到async/await，每一步都使异步代码更加清晰和易于管理。作为现代JavaScript开发者，掌握这些异步编程模式及其最佳实践至关重要。async/await作为当前最推荐的方式，结合Promise的强大功能，为我们提供了优雅处理异步操作的工具。</p>
+                </div>
+                <a href="../index.html#blog" class="back-to-blog"><i class="fas fa-arrow-left"></i> 返回博客列表</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-blog"></i> MASHIJIAN
+            </div>
+            <p>分享技术，记录生活，创造价值</p>
+            <div class="copyright">
+                &copy; 2023 MASHIJIAN. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid布局实战技巧 - MASHIJIAN 个人博客</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-blog"></i>
+                <span>MASHIJIAN</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="../index.html#home" class="">首页</a></li>
+                    <li><a href="../index.html#blog" class="active">博客</a></li>
+                    <li><a href="../index.html#about">关于</a></li>
+                    <li><a href="../index.html#contact">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="post3" class="blog-detail active">
+                <div class="blog-header">
+                    <h1>CSS Grid布局实战技巧</h1>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> 2023年10月5日</span>
+                        <span><i class="far fa-clock"></i> 阅读时间: 7分钟</span>
+                        <span><i class="fas fa-tag"></i> CSS</span>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <p>CSS Grid布局是CSS中最强大的布局系统之一，它允许我们创建复杂的二维布局。本文将通过实际案例展示CSS Grid布局的强大功能和实用技巧。</p><h2>Grid布局基础</h2><p>要创建一个Grid布局，首先需要将容器的display属性设置为grid：</p><pre><code>.container {
+  display: grid;
+}</code></pre><h3>定义网格轨道</h3><p>使用grid-template-columns和grid-template-rows定义网格的列和行：</p><pre><code>.container {
+  display: grid;
+  grid-template-columns: 200px 1fr 2fr;
+  grid-template-rows: 100px auto;
+}</code></pre><p>在这个例子中，我们创建了一个三列两行的网格：</p><ul><li>第一列固定宽度200px</li><li>第二列占据1份可用空间</li><li>第三列占据2份可用空间</li><li>第一行固定高度100px</li><li>第二行根据内容自动调整高度</li></ul><h2>实用布局技巧</h2><h3>1. 响应式网格</h3><p>使用repeat()和auto-fit/auto-fill创建响应式网格：</p><pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}</code></pre><p>这个技巧会根据容器宽度自动调整列数，每列最小宽度250px，最大为1fr（均分剩余空间）。</p><h3>2. 网格区域命名</h3><p>使用grid-template-areas可以直观地定义布局：</p><pre><code>.layout {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 80px 1fr 60px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }</code></pre><h3>3. 对齐和间距</h3><p>Grid提供了多种对齐和间距控制方式：</p><pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* 行和列的间距 */
+  justify-items: center; /* 水平对齐网格项 */
+  align-items: start; /* 垂直对齐网格项 */
+}</code></pre><h3>4. 网格线定位</h3><p>可以使用网格线精确控制项目位置：</p><pre><code>.item {
+  grid-column: 2 / 4; /* 从第2条线开始，到第4条线结束 */
+  grid-row: 1 / 3; /* 从第1条线开始，到第3条线结束 */
+}</code></pre><h2>实战案例：仪表盘布局</h2><p>下面是一个使用Grid创建的仪表盘布局：</p><pre><code>.dashboard {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas: 
+    "sidebar header"
+    "sidebar main";
+  height: 100vh;
+}
+
+.sidebar { grid-area: sidebar; }
+.header { grid-area: header; }
+.main { grid-area: main; }
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "main";
+  }
+  
+  .sidebar {
+    display: none;
+  }
+}</code></pre><h2>Grid vs Flexbox</h2><p>Grid和Flexbox都是强大的布局工具，但适用场景不同：</p><ul><li><strong>Grid</strong>：适用于二维布局（行和列），适合整体页面布局</li><li><strong>Flexbox</strong>：适用于一维布局（行或列），适合组件内部布局</li></ul><p>在实际项目中，两者经常结合使用：Grid用于页面整体布局，Flexbox用于组件内部对齐。</p><h2>浏览器支持</h2><p>CSS Grid在现代浏览器中得到了广泛支持：</p><ul><li>Chrome 57+</li><li>Firefox 52+</li><li>Safari 10.1+</li><li>Edge 16+</li><li>iOS Safari 10.3+</li><li>Android Browser 67+</li></ul><h2>总结</h2><p>CSS Grid布局为Web开发者提供了前所未有的布局控制能力。通过掌握网格定义、区域命名、响应式技巧等核心概念，我们可以轻松创建复杂的现代Web布局。虽然学习曲线略陡，但一旦掌握，Grid将成为你布局工具箱中最强大的武器。</p>
+                </div>
+                <a href="../index.html#blog" class="back-to-blog"><i class="fas fa-arrow-left"></i> 返回博客列表</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-blog"></i> MASHIJIAN
+            </div>
+            <p>分享技术，记录生活，创造价值</p>
+            <div class="copyright">
+                &copy; 2023 MASHIJIAN. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
