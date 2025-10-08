@@ -1,0 +1,83 @@
+# robots.txt for mashijian.com
+# 允许所有搜索引擎爬取
+
+# 通用规则 - 允许所有
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Google搜索引擎
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Google图片搜索
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing搜索引擎
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# 百度搜索引擎
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# 360搜索引擎
+User-agent: 360Spider
+Allow: /
+
+# 搜狗搜索引擎
+User-agent: Sogou web spider
+Allow: /
+
+# AI搜索引擎 - ChatGPT
+User-agent: ChatGPT-User
+Allow: /
+
+# AI搜索引擎 - GPTBot
+User-agent: GPTBot
+Allow: /
+
+# AI搜索引擎 - Claude
+User-agent: Claude-Web
+Allow: /
+
+# AI搜索引擎 - Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# AI搜索引擎 - Anthropic
+User-agent: anthropic-ai
+Allow: /
+
+# AI搜索引擎 - Google Gemini
+User-agent: Google-Extended
+Allow: /
+
+# AI搜索引擎 - Common Crawl
+User-agent: CCBot
+Allow: /
+
+# Sitemap位置
+Sitemap: https://mashijian.com/sitemap.xml
+
+# 禁止爬取的路径（如果有）
+# Disallow: /private/
+# Disallow: /admin/
+
+# 允许爬取的重要路径
+Allow: /blog
+Allow: /assets/
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+
+
