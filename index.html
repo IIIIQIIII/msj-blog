@@ -92,6 +92,17 @@
         "blogPost": [
             {
                 "@type": "BlogPosting",
+                "headline": "Qwen2.5-Coder Sentiment Analysis Fine-tuning Tutorial",
+                "alternateName": "Qwen2.5-Coder 情感分析微调教程",
+                "name": "Complete Guide to Freeze-Training Qwen2.5-Coder for Sentiment Analysis",
+                "description": "A comprehensive tutorial on fine-tuning Qwen2.5-Coder-1.5B for Chinese sentiment analysis using freeze training method, achieving 97.8% accuracy with parameter-efficient techniques on ChnSentiCorp dataset",
+                "datePublished": "2025-10-10",
+                "keywords": "Qwen2.5-Coder, Sentiment Analysis, Freeze Training, LLM Fine-tuning, Parameter-Efficient, Chinese NLP, LLaMA-Factory",
+                "url": "https://github.com/IIIIQIIII/MSJ-Factory",
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "BlogPosting",
                 "headline": "Improving ChnSentiCorp by Cleaning Label Noise",
                 "alternateName": "通过清洗标签噪声提升 ChnSentiCorp 情感分析",
                 "name": "Improving ChnSentiCorp Sentiment Analysis through Label Noise Cleaning",
@@ -569,6 +580,14 @@
         /* Apple 风格高级三色渐变（Qwen3 0.6B Sentiment） */
         .gradient-text-22 {
             background: linear-gradient(135deg, #FDE68A, #A78BFA, #60A5FA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* 科技感蓝紫粉三色渐变（Qwen2.5-Coder） */
+        .gradient-text-23 {
+            background: linear-gradient(135deg, #3B82F6, #A855F7, #EC4899);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1378,6 +1397,36 @@
 
         <!-- 博客卡片网格 -->
         <div class="blog-grid" id="blogGrid">
+            <!-- 新卡片：Qwen2.5-Coder Sentiment Fine-tuning -->
+            <article class="blog-card" onclick="openArticle(23)">
+                <div class="card-cover">
+                    <div class="card-cover-gradient card-cover-dark"></div>
+                    <div class="card-cover-title gradient-text-23">Qwen2.5-Coder</div>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">
+                        <span data-lang="en">LLM Fine-tuning</span>
+                        <span data-lang="zh" style="display: none;">大模型微调</span>
+                    </span>
+                    <h2 class="card-title">
+                        <span data-lang="en">Qwen2.5-Coder Sentiment Analysis Fine-tuning Tutorial</span>
+                        <span data-lang="zh" style="display: none;">Qwen2.5-Coder 情感分析微调教程</span>
+                    </h2>
+                    <p class="card-excerpt">
+                        <span data-lang="en">Complete guide to freeze-training Qwen2.5-Coder-1.5B for Chinese sentiment analysis, achieving 97.8% accuracy.</span>
+                        <span data-lang="zh" style="display: none;">基于冻结训练方法微调 Qwen2.5-Coder-1.5B 进行中文情感分析的完整教程，准确率达 97.8%。</span>
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-date">2025-10-10</span>
+                        <span class="read-more">
+                            <span data-lang="en">Read more</span>
+                            <span data-lang="zh" style="display: none;">阅读更多</span>
+                            <span class="read-more-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
             <!-- 新卡片：ChnSentiCorp Cleaning Experiment -->
             <article class="blog-card" onclick="openArticle(13)">
                 <div class="card-cover">
@@ -1950,6 +1999,9 @@
         
         // 新增卡片链接：Qwen3 0.6B Sentiment
         articleLinks[22] = 'https://github.com/IIIIQIIII/qwen3_sentiment_finetune';
+        
+        // 新增卡片链接：Qwen2.5-Coder Sentiment Fine-tuning
+        articleLinks[23] = 'https://github.com/IIIIQIIII/MSJ-Factory';
 
         function openArticle(id) {
             const link = articleLinks[id];
