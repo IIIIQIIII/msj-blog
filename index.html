@@ -593,6 +593,14 @@
             color: transparent;
         }
 
+        /* 青绿-紫-蓝三色渐变（Computer-Agent） */
+        .gradient-text-24 {
+            background: linear-gradient(135deg, #06D6A0, #8B5CF6, #0EA5E9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
         /* gradient-8 配色（用于Short Studio，参考Stable Diffusion XL卡片） */
         .gradient-text-18 {
             background: linear-gradient(135deg, #FF9A8B, #FF6A88, #FF99AC);
@@ -1397,6 +1405,36 @@
 
         <!-- 博客卡片网格 -->
         <div class="blog-grid" id="blogGrid">
+            <!-- 新卡片：Computer-Agent -->
+            <article class="blog-card" onclick="openArticle(24)">
+                <div class="card-cover">
+                    <div class="card-cover-gradient card-cover-dark"></div>
+                    <div class="card-cover-title gradient-text-24">Computer-Agent</div>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">
+                        <span data-lang="en">AI Agent</span>
+                        <span data-lang="zh" style="display: none;">AI智能体</span>
+                    </span>
+                    <h2 class="card-title">
+                        <span data-lang="en">Computer-Agent: Vision-Language Powered Automation</span>
+                        <span data-lang="zh" style="display: none;">Computer-Agent：视觉语言驱动的自动化工具</span>
+                    </h2>
+                    <p class="card-excerpt">
+                        <span data-lang="en">AI-powered agent that understands your screen and automates tasks via natural language commands.</span>
+                        <span data-lang="zh" style="display: none;">理解屏幕内容，通过自然语言命令自动化执行任务的 AI 智能体。</span>
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-date">2025-10-26</span>
+                        <span class="read-more">
+                            <span data-lang="en">Read more</span>
+                            <span data-lang="zh" style="display: none;">阅读更多</span>
+                            <span class="read-more-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
             <!-- 新卡片：Qwen2.5-Coder Sentiment Fine-tuning -->
             <article class="blog-card" onclick="openArticle(23)">
                 <div class="card-cover">
@@ -2002,6 +2040,9 @@
         
         // 新增卡片链接：Qwen2.5-Coder Sentiment Fine-tuning
         articleLinks[23] = 'https://github.com/IIIIQIIII/MSJ-Factory';
+        
+        // 新增卡片链接：Computer-Agent
+        articleLinks[24] = 'https://github.com/IIIIQIIII/Computer-Agent';
 
         function openArticle(id) {
             const link = articleLinks[id];
