@@ -92,6 +92,17 @@
         "blogPost": [
             {
                 "@type": "BlogPosting",
+                "headline": "XAgent: Intelligent X.com Automation Framework",
+                "alternateName": "XAgent：智能 X.com 自动化框架",
+                "name": "XAgent: Intelligent X.com Automation Framework",
+                "description": "Intelligent X.com automation framework powered by Claude Agent SDK and Chrome DevTools MCP.",
+                "datePublished": "2025-11-20",
+                "keywords": "XAgent, X.com Automation, Claude Agent SDK, Chrome DevTools MCP, AI Agent, TypeScript",
+                "url": "https://github.com/IIIIQIIII/x-agent",
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "BlogPosting",
                 "headline": "Qwen2.5-Coder Sentiment Analysis Fine-tuning Tutorial",
                 "alternateName": "Qwen2.5-Coder 情感分析微调教程",
                 "name": "Complete Guide to Freeze-Training Qwen2.5-Coder for Sentiment Analysis",
@@ -596,6 +607,14 @@
         /* 青绿-紫-蓝三色渐变（Computer-Agent） */
         .gradient-text-24 {
             background: linear-gradient(135deg, #06D6A0, #8B5CF6, #0EA5E9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* 黄-红-紫三色激烈渐变（XAgent） */
+        .gradient-text-25 {
+            background: linear-gradient(135deg, #FFE53B, #FF2525, #8E2DE2);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1405,6 +1424,36 @@
 
         <!-- 博客卡片网格 -->
         <div class="blog-grid" id="blogGrid">
+            <!-- 新卡片：XAgent -->
+            <article class="blog-card" onclick="openArticle(25)">
+                <div class="card-cover">
+                    <div class="card-cover-gradient card-cover-dark"></div>
+                    <div class="card-cover-title gradient-text-25">XAgent</div>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">
+                        <span data-lang="en">Agentic AI</span>
+                        <span data-lang="zh" style="display: none;">Agentic AI</span>
+                    </span>
+                    <h2 class="card-title">
+                        <span data-lang="en">XAgent: Intelligent X.com Automation Framework</span>
+                        <span data-lang="zh" style="display: none;">XAgent：智能 X.com 自动化框架</span>
+                    </h2>
+                    <p class="card-excerpt">
+                        <span data-lang="en">Intelligent X.com automation framework powered by Claude Agent SDK and Chrome DevTools MCP.</span>
+                        <span data-lang="zh" style="display: none;">基于 Claude Agent SDK 和 Chrome DevTools MCP 的强大 X.com 自动化框架，支持智能浏览与交互。</span>
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-date">2025-11-20</span>
+                        <span class="read-more">
+                            <span data-lang="en">Read more</span>
+                            <span data-lang="zh" style="display: none;">阅读更多</span>
+                            <span class="read-more-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
             <!-- 新卡片：Computer-Agent -->
             <article class="blog-card" onclick="openArticle(24)">
                 <div class="card-cover">
@@ -1414,7 +1463,7 @@
                 <div class="card-content">
                     <span class="card-category">
                         <span data-lang="en">AI Agent</span>
-                        <span data-lang="zh" style="display: none;">AI智能体</span>
+                        <span data-lang="zh" style="display: none;">AI Agent</span>
                     </span>
                     <h2 class="card-title">
                         <span data-lang="en">Computer-Agent: Vision-Language Powered Automation</span>
@@ -2043,6 +2092,9 @@
         
         // 新增卡片链接：Computer-Agent
         articleLinks[24] = 'https://github.com/IIIIQIIII/Computer-Agent';
+
+        // 新增卡片链接：XAgent
+        articleLinks[25] = 'https://github.com/IIIIQIIII/x-agent';
 
         function openArticle(id) {
             const link = articleLinks[id];
