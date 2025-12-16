@@ -92,6 +92,17 @@
         "blogPost": [
             {
                 "@type": "BlogPosting",
+                "headline": "Qwen3-8B-Drama-Thinking: Creative Screenwriting Model",
+                "alternateName": "Qwen3-8B-Drama-Thinking：创意剧本写作模型",
+                "name": "Qwen3-8B-Drama-Thinking: Full Parameter Fine-tuning for Screenwriting",
+                "description": "Full parameter fine-tuned Qwen3-8B for screenwriting with explicit creative reasoning chains, achieving professional-level dramatic storytelling.",
+                "datePublished": "2025-12-16",
+                "keywords": "Qwen3, LLM Fine-tuning, Screenwriting, Creative Writing, Drama, Chain-of-Thought, ms-swift, NLP, H100",
+                "url": "https://huggingface.co/FutureMa/Qwen3-8B-Drama-Thinking",
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "BlogPosting",
                 "headline": "FinReports: Financial Analysis Platform",
                 "alternateName": "FinReports：金融分析平台",
                 "name": "FinReports - Financial Analysis Platform",
@@ -634,6 +645,14 @@
         /* 蓝-紫-粉三色渐变（FinReports） */
         .gradient-text-26 {
             background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* 红-金-橙三色渐变（Drama-Thinking） */
+        .gradient-text-27 {
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1443,6 +1462,36 @@
 
         <!-- 博客卡片网格 -->
         <div class="blog-grid" id="blogGrid">
+            <!-- 新卡片：Drama-Thinking -->
+            <article class="blog-card" onclick="openArticle(27)">
+                <div class="card-cover">
+                    <div class="card-cover-gradient card-cover-dark"></div>
+                    <div class="card-cover-title gradient-text-27">Drama-Thinking</div>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">
+                        <span data-lang="en">AI & NLP</span>
+                        <span data-lang="zh" style="display: none;">AI & NLP</span>
+                    </span>
+                    <h2 class="card-title">
+                        <span data-lang="en">Qwen3-8B-Drama-Thinking: Creative Screenwriting Model</span>
+                        <span data-lang="zh" style="display: none;">Qwen3-8B-Drama-Thinking：创意剧本写作模型</span>
+                    </h2>
+                    <p class="card-excerpt">
+                        <span data-lang="en">Full parameter fine-tuned Qwen3-8B for screenwriting with explicit creative reasoning chains.</span>
+                        <span data-lang="zh" style="display: none;">全参数微调的 Qwen3-8B 剧本写作模型，具有显式创意推理链。</span>
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-date">2025-12-16</span>
+                        <span class="read-more">
+                            <span data-lang="en">Read more</span>
+                            <span data-lang="zh" style="display: none;">阅读更多</span>
+                            <span class="read-more-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
             <!-- 新卡片：FinReports -->
             <article class="blog-card" onclick="openArticle(26)">
                 <div class="card-cover">
@@ -2147,6 +2196,9 @@
 
         // 新增卡片链接：FinReports
         articleLinks[26] = 'https://github.com/IIIIQIIII/financial-analysis';
+
+        // 新增卡片链接：Drama-Thinking
+        articleLinks[27] = 'https://huggingface.co/FutureMa/Qwen3-8B-Drama-Thinking';
 
         function openArticle(id) {
             const link = articleLinks[id];
