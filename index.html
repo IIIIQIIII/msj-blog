@@ -92,6 +92,17 @@
         "blogPost": [
             {
                 "@type": "BlogPosting",
+                "headline": "FinReports: Financial Analysis Platform",
+                "alternateName": "FinReports：金融分析平台",
+                "name": "FinReports - Financial Analysis Platform",
+                "description": "Financial analysis platform built with Next.js 16 and AI insights.",
+                "datePublished": "2025-12-07",
+                "keywords": "Financial Analysis, Next.js 16, TypeScript, MDX, Tailwind CSS, Server-Side Rendering, Financial Tech, SEC EDGAR",
+                "url": "https://github.com/IIIIQIIII/financial-analysis",
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "BlogPosting",
                 "headline": "XAgent: Intelligent X.com Automation Framework",
                 "alternateName": "XAgent：智能 X.com 自动化框架",
                 "name": "XAgent: Intelligent X.com Automation Framework",
@@ -615,6 +626,14 @@
         /* 黄-红-紫三色激烈渐变（XAgent） */
         .gradient-text-25 {
             background: linear-gradient(135deg, #FFE53B, #FF2525, #8E2DE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* 蓝-紫-粉三色渐变（FinReports） */
+        .gradient-text-26 {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1424,6 +1443,36 @@
 
         <!-- 博客卡片网格 -->
         <div class="blog-grid" id="blogGrid">
+            <!-- 新卡片：FinReports -->
+            <article class="blog-card" onclick="openArticle(26)">
+                <div class="card-cover">
+                    <div class="card-cover-gradient card-cover-dark"></div>
+                    <div class="card-cover-title gradient-text-26">FinReports</div>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">
+                        <span data-lang="en">Financial Tech</span>
+                        <span data-lang="zh" style="display: none;">金融科技</span>
+                    </span>
+                    <h2 class="card-title">
+                        <span data-lang="en">FinReports: Financial Analysis Platform</span>
+                        <span data-lang="zh" style="display: none;">FinReports：金融分析平台</span>
+                    </h2>
+                    <p class="card-excerpt">
+                        <span data-lang="en">Financial analysis platform built with Next.js 16 and AI insights.</span>
+                        <span data-lang="zh" style="display: none;">基于 Next.js 16 和 AI 洞察构建的金融分析平台。</span>
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-date">2025-12-07</span>
+                        <span class="read-more">
+                            <span data-lang="en">Read more</span>
+                            <span data-lang="zh" style="display: none;">阅读更多</span>
+                            <span class="read-more-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
             <!-- 新卡片：XAgent -->
             <article class="blog-card" onclick="openArticle(25)">
                 <div class="card-cover">
@@ -2095,6 +2144,9 @@
 
         // 新增卡片链接：XAgent
         articleLinks[25] = 'https://github.com/IIIIQIIII/x-agent';
+
+        // 新增卡片链接：FinReports
+        articleLinks[26] = 'https://github.com/IIIIQIIII/financial-analysis';
 
         function openArticle(id) {
             const link = articleLinks[id];
