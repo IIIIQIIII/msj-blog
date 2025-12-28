@@ -248,11 +248,24 @@
                 "headline": "Prefix Tuning: Optimizing Prompts for Better Performance",
                 "alternateName": "前缀调优：优化提示以获得更好的性能",
                 "name": "Prefix Tuning for Efficient Task Adaptation",
-                "description": "Explore how prefix tuning optimizes only a small portion of the model to adapt to new tasks without full fine-tuning, offering a parameter-efficient alternative",
+                "description": "Explore how prefix tuning optimizes only a small portion of model to adapt to new tasks without full fine-tuning, offering a parameter-efficient alternative",
                 "datePublished": "2023-11-10",
                 "keywords": "Prefix Tuning, PEFT, Prompt Optimization, Task Adaptation",
                 "inLanguage": "en-US"
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "DramaBench: Drama Script Benchmark",
+                "alternateName": "DramaBench: 剧本评估基准",
+                "name": "DramaBench: Drama Script Benchmark - Six-Dimensional Evaluation",
+                "description": "Six-Dimensional Drama Script Evaluation Framework",
+                "datePublished": "2025-12-20",
+                "keywords": "DramaBench, LLM Evaluation, Drama Script, Natural Language Generation, Benchmark, Model Comparison, Six Dimensions, Creative Writing, arXiv, Hugging Face Dataset",
+                "url": "https://dramabench.pages.dev",
+                "inLanguage": "en-US"
             }
+        ]
+    }
         ]
     }
     </script>
@@ -653,6 +666,14 @@
         /* 红-金-橙三色渐变（Drama-Thinking） */
         .gradient-text-27 {
             background: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* 珊瑚-琥珀-暖橙三色渐变（DramaBench） */
+        .gradient-text-28 {
+            background: linear-gradient(135deg, #FF6B6B, #FFB347, #FF8C61);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1913,6 +1934,36 @@
                 </div>
             </article>
 
+            <!-- 新卡片：DramaBench -->
+            <article class="blog-card" onclick="openArticle(28)">
+                <div class="card-cover">
+                    <div class="card-cover-gradient card-cover-dark"></div>
+                    <div class="card-cover-title gradient-text-28">DramaBench</div>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">
+                        <span data-lang="en">LLM Evaluation</span>
+                        <span data-lang="zh" style="display: none;">大模型评估</span>
+                    </span>
+                    <h2 class="card-title">
+                        <span data-lang="en">DramaBench: Drama Script Benchmark</span>
+                        <span data-lang="zh" style="display: none;">DramaBench: 剧本评估基准</span>
+                    </h2>
+                    <p class="card-excerpt">
+                        <span data-lang="en">Six-Dimensional Drama Script Evaluation Framework</span>
+                        <span data-lang="zh" style="display: none;">六维剧本续写评估框架</span>
+                    </p>
+                    <div class="card-meta">
+                        <span class="card-date">2025-12-20</span>
+                        <span class="read-more">
+                            <span data-lang="en">Read more</span>
+                            <span data-lang="zh" style="display: none;">阅读更多</span>
+                            <span class="read-more-arrow">→</span>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
 
 
             
@@ -2199,6 +2250,9 @@
 
         // 新增卡片链接：Drama-Thinking
         articleLinks[27] = 'https://huggingface.co/FutureMa/Qwen3-8B-Drama-Thinking';
+
+        // 新增卡片链接：DramaBench
+        articleLinks[28] = 'https://dramabench.pages.dev';
 
         function openArticle(id) {
             const link = articleLinks[id];
